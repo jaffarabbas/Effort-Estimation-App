@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 20,
+                  height: 50,
                 ),
                 Text(
                   'ESTIMATION COST',
