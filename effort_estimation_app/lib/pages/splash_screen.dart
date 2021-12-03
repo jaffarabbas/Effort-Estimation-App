@@ -30,15 +30,19 @@ class _SplashScreenState extends State<SplashScreen> {
   }
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height -
+        MediaQuery.of(context).padding.top -
+        kToolbarHeight;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.blueAccent,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-             TextArea('EFFORT'),
-             TextArea('ESTIMATION'),
-             TextArea('APP'),
+             TextArea('EFFORT',width * 0.1),
+             TextArea('ESTIMATION',width * 0.1),
+             TextArea('APP',width * 0.1),
           ],
         ),
       ),
