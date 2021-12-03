@@ -5,6 +5,7 @@ import 'package:effort_estimation_app/containers/calculateButton.dart';
 import 'package:effort_estimation_app/containers/outputCalculation.dart';
 import 'package:effort_estimation_app/widgits/Functional_Point/InputFeilds.dart';
 import 'package:effort_estimation_app/widgits/Functional_Point/scaleDropDown.dart';
+import 'package:effort_estimation_app/widgits/mediaQuery.dart';
 import 'package:flutter/material.dart';
 
 class FunctionalPoint extends StatefulWidget {
@@ -38,9 +39,7 @@ class _FunctionalPointState extends State<FunctionalPoint> {
   List<int> low = [3, 4, 3, 7, 5];
   List<int> average = [4, 5, 4, 10, 7];
   List<int> high = [6, 7, 6, 15, 10];
-  //advance module
-  bool isAdvance = false;
-  
+
   //refresh the dropdown index
   void Refresh(int newIndex) {
     setState(() {
@@ -120,13 +119,12 @@ class _FunctionalPointState extends State<FunctionalPoint> {
     return double.parse(((value).toStringAsFixed(2)));
   }
 
+  //advance module
+  bool isAdvance = true;
   @override
-  Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height -
-        MediaQuery.of(context).padding.top -
-        kToolbarHeight;
-    final width = MediaQuery.of(context).size.width;
+  List weightFactors = [];
 
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blueAccent,
       appBar: AppBar(
@@ -134,12 +132,14 @@ class _FunctionalPointState extends State<FunctionalPoint> {
         elevation: 0,
       ),
       body: Container(
-        padding: EdgeInsets.only(bottom: 20),
+        padding: EdgeInsets.only(bottom: 20, right: 10),
         child: SingleChildScrollView(
           child: Center(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextArea('FUNCTIONAL POINT',width * 0.1),
+                TextArea('FUNCTIONAL POINT',
+                    Resposive.ResponsiveWidth(context, 0.1)),
                 Container(
                   padding: EdgeInsets.only(top: 20),
                   child: Row(
@@ -225,9 +225,10 @@ class _FunctionalPointState extends State<FunctionalPoint> {
                     : Column(
                         children: [
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
-                                width: width * 0.75,
+                                width: Resposive.ResponsiveWidth(context, 0.73),
                                 margin: EdgeInsets.only(top: 20),
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 10),
@@ -235,13 +236,13 @@ class _FunctionalPointState extends State<FunctionalPoint> {
                                   decoration: InputDecoration(
                                     enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(20.0),
-                                      borderSide:
-                                          BorderSide(color: Colors.white, width: 0),
+                                      borderSide: BorderSide(
+                                          color: Colors.white, width: 0),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(20.0),
-                                      borderSide:
-                                          BorderSide(color: Colors.white, width: 0),
+                                      borderSide: BorderSide(
+                                          color: Colors.white, width: 0),
                                     ),
                                     filled: true,
                                     hintStyle: TextStyle(
@@ -254,35 +255,38 @@ class _FunctionalPointState extends State<FunctionalPoint> {
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.only(top: 20,),
+                                margin: EdgeInsets.only(
+                                  top: 20,
+                                ),
                                 width: 70,
                                 height: 55,
                                 alignment: Alignment.center,
-                                padding: EdgeInsets.symmetric(horizontal:10,vertical:2),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 2),
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
-                                child: Text(
-                                  "999",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.blueAccent,
-                                    fontWeight: FontWeight.bold
-                                  )
-                                ),
+                                child: Text("999",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.blueAccent,
+                                        fontWeight: FontWeight.bold)),
                               ),
                             ],
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                               Container(
-                                margin: EdgeInsets.only(top: 20,),
+                              Container(
+                                margin: EdgeInsets.only(
+                                  top: 20,
+                                ),
                                 width: 130,
                                 height: 55,
                                 alignment: Alignment.center,
-                                padding: EdgeInsets.symmetric(horizontal:10,vertical:2),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 2),
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(20.0),
@@ -291,13 +295,13 @@ class _FunctionalPointState extends State<FunctionalPoint> {
                                   decoration: InputDecoration(
                                     enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(20.0),
-                                      borderSide:
-                                          BorderSide(color: Colors.white, width: 0),
+                                      borderSide: BorderSide(
+                                          color: Colors.white, width: 0),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(20.0),
-                                      borderSide:
-                                          BorderSide(color: Colors.white, width: 0),
+                                      borderSide: BorderSide(
+                                          color: Colors.white, width: 0),
                                     ),
                                     filled: true,
                                     hintStyle: TextStyle(
@@ -310,11 +314,14 @@ class _FunctionalPointState extends State<FunctionalPoint> {
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.only(top: 20,),
+                                margin: EdgeInsets.only(
+                                  top: 20,
+                                ),
                                 width: 130,
                                 height: 55,
                                 alignment: Alignment.center,
-                                padding: EdgeInsets.symmetric(horizontal:10,vertical:2),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 2),
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(20.0),
@@ -323,13 +330,13 @@ class _FunctionalPointState extends State<FunctionalPoint> {
                                   decoration: InputDecoration(
                                     enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(20.0),
-                                      borderSide:
-                                          BorderSide(color: Colors.white, width: 0),
+                                      borderSide: BorderSide(
+                                          color: Colors.white, width: 0),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(20.0),
-                                      borderSide:
-                                          BorderSide(color: Colors.white, width: 0),
+                                      borderSide: BorderSide(
+                                          color: Colors.white, width: 0),
                                     ),
                                     filled: true,
                                     hintStyle: TextStyle(
@@ -342,14 +349,129 @@ class _FunctionalPointState extends State<FunctionalPoint> {
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.only(top: 20,),
+                                margin: EdgeInsets.only(
+                                  top: 20,
+                                ),
                                 child: CircleAvatar(
                                   backgroundColor: Colors.white,
-                                  child: IconButton(onPressed: (){}, icon: Icon(Icons.add)),
+                                  child: IconButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          weightFactors.add(
+                                              weightFactors.length.toInt());
+                                        });
+                                      },
+                                      icon: Icon(Icons.add)),
                                 ),
                               )
                             ],
                           ),
+                          ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: weightFactors.length,
+                              itemBuilder: (context, index) {
+                                return Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Container(
+                                      margin: EdgeInsets.only(
+                                        top: 20,
+                                      ),
+                                      width: 130,
+                                      height: 55,
+                                      alignment: Alignment.center,
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 10, vertical: 2),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadius.circular(20.0),
+                                      ),
+                                      child: TextField(
+                                        decoration: InputDecoration(
+                                          enabledBorder: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20.0),
+                                            borderSide: BorderSide(
+                                                color: Colors.white, width: 0),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20.0),
+                                            borderSide: BorderSide(
+                                                color: Colors.white, width: 0),
+                                          ),
+                                          filled: true,
+                                          hintStyle: TextStyle(
+                                              color: Colors.blue,
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold),
+                                          hintText: 'Enter text',
+                                          fillColor: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(
+                                        top: 20,
+                                      ),
+                                      width: 130,
+                                      height: 55,
+                                      alignment: Alignment.center,
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 10, vertical: 2),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadius.circular(20.0),
+                                      ),
+                                      child: TextField(
+                                        decoration: InputDecoration(
+                                          enabledBorder: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20.0),
+                                            borderSide: BorderSide(
+                                                color: Colors.white, width: 0),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20.0),
+                                            borderSide: BorderSide(
+                                                color: Colors.white, width: 0),
+                                          ),
+                                          filled: true,
+                                          hintStyle: TextStyle(
+                                              color: Colors.blue,
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold),
+                                          hintText: 'Enter text',
+                                          fillColor: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(
+                                        top: 20,
+                                      ),
+                                      child: CircleAvatar(
+                                        backgroundColor: Colors.white,
+                                        child: IconButton(
+                                          onPressed: () {
+                                            setState(
+                                              () {
+                                                weightFactors.removeAt(weightFactors.length - 1);
+                                              },
+                                            );
+                                          },
+                                          icon: Icon(
+                                              Icons.delete),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                );
+                              }),
                         ],
                       ),
               ],
