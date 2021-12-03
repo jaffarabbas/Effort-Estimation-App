@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 
-Widget TextArea(String str) => Text(
+Widget TextArea(String str,double size) => Text(
       str,
       style: TextStyle(
         color: Colors.white,
-        fontSize: 40,
+        fontSize: size,
         fontWeight: FontWeight.bold,
       ),
     );
