@@ -20,7 +20,6 @@ class _FunctionalPointState extends State<FunctionalPoint> {
   TextEditingController EQ = new TextEditingController();
   TextEditingController ILF = new TextEditingController();
   TextEditingController ELF = new TextEditingController();
-
   //variables
   num F = 0, CAF = 0, UFP = 0, FP = 0;
   List<num> feildData = [];
@@ -123,6 +122,11 @@ class _FunctionalPointState extends State<FunctionalPoint> {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height -
+        MediaQuery.of(context).padding.top -
+        kToolbarHeight;
+    final width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: Colors.blueAccent,
       appBar: AppBar(
@@ -135,7 +139,7 @@ class _FunctionalPointState extends State<FunctionalPoint> {
           child: Center(
             child: Column(
               children: [
-                TextArea('FUNCTIONAL POINT'),
+                TextArea('FUNCTIONAL POINT',width * 0.1),
                 Container(
                   padding: EdgeInsets.only(top: 20),
                   child: Row(
@@ -223,7 +227,7 @@ class _FunctionalPointState extends State<FunctionalPoint> {
                           Row(
                             children: [
                               Container(
-                                width: 330,
+                                width: width * 0.75,
                                 margin: EdgeInsets.only(top: 20),
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 10),
