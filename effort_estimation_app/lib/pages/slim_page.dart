@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors_in_immutables, prefer_const_constructors, prefer_const_literals_to_create_immutables, unnecessary_new, non_constant_identifier_names
 
+import 'package:effort_estimation_app/containers/_text.dart';
 import 'package:effort_estimation_app/containers/calculateButton.dart';
 import 'package:effort_estimation_app/widgits/Slim_Widgits/inputFeilds.dart';
 import 'package:effort_estimation_app/containers/outputCalculation.dart';
+import 'package:effort_estimation_app/widgits/mediaQuery.dart';
 import 'package:flutter/material.dart';
 
 class SlimModel extends StatefulWidget {
@@ -45,14 +47,7 @@ class _SlimModelState extends State<SlimModel> {
                 SizedBox(
                   height:20,
                 ),
-                Text(
-                  'SLIM',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                TextArea("SILM",Resposive.ResponsiveWidth(context, 0.1)),
                 InputArea(
                     locController: locController,
                     cController: cController,
@@ -62,7 +57,10 @@ class _SlimModelState extends State<SlimModel> {
                 ),
                 CalculateButton(
                   runner: CalculateSILM,
-                )
+                ),
+                SizedBox(
+                  height:20,
+                ),
               ],
             ),
           ),
